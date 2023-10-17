@@ -1,6 +1,6 @@
 1. Selezionare tutti gli studenti nati nel 1990 (160)
 
-- SELECT * FROM `students` WHERE `date_of_birth` LIKE '1990-%' ORDER BY `date_of_birth` DESC
+- SELECT * FROM `students` WHERE `date_of_birth` LIKE '1990-%' ORDER BY `date_of_birth` DESC;
 <hr>
 <br>
 
@@ -45,6 +45,6 @@ laurea (286)
 
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
-- SELECT * FROM `teachers` WHERE `phone` IS NULL;
+- SELECT SUM(`phone` IS NULL) as 'Total_teachers'FROM `teachers`;
 <hr>
 <br>
