@@ -12,7 +12,16 @@ ORDER BY `current_year` DESC;
 
 ## Contare gli insegnanti che hanno l'ufficio nello stesso edificio
 
+SELECT `teachers`.`office_address` AS `address_name`,
+COUNT(*) AS `teacher_with_same_office` FROM `teachers`
+GROUP BY `address_name`
+ORDER BY `address_name` ASC;
+
 ## Calcolare la media dei voti di ogni appello d'esame
+
+SELECT AVG(`exam_student`.`vote`) AS `average_vote`, `exam_id` FROM `exam_student`
+GROUP BY `exam_id`
+ORDER BY `average_vote` DESC;
 
 ## Contare quanti corsi di laurea ci sono per ogni dipartimento
 
