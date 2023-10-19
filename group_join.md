@@ -83,7 +83,11 @@ JOIN `course_teacher` ON `course_teacher`.`teacher_id` = `teachers`.`id`
 JOIN `courses` ON `course_teacher`.`course_id` = `courses`.`id`
 JOIN `degrees` ON `courses`.`degree_id` = `degrees`.`id`
 JOIN `departments` ON `degrees`.`department_id` = `departments`.`id`
-WHERE `departments`.`name` = 'Dipartimento di Matematica';
+<!-- meglio filtrare per id -->
+WHERE `departments`.`name` = 'Dipartimento di Matematica'; 
+
+<!-- cosi -->
+WHERE `departments`.`id` = 5; 
 
 ## BONUS: 
 
@@ -106,6 +110,7 @@ FROM `exams`
 JOIN `exam_student` ON `exam_student`.`exam_id` = `exams`.`id` 
 JOIN `students` ON `exam_student`.`student_id` = `students`.`id` 
 JOIN `courses` ON `exams`.`course_id` = `courses`.`id` 
-WHERE `exam_student`.`vote` >= 18
+<!-- WHERE `exam_student`.`vote` >= 18          QUESTO   non ci va ma bisogna usare having -->
 GROUP BY `course_number`, `students`.`name`, `students`.`surname` 
-ORDER BY `students`.`name` ASC, `students`.`surname` ASC;
+ORDER BY `students`.`name` ASC, `students`.`surname` ASC
+HAVING `best_vote` >= 18;  <!-- lavora dopo che è stato tutto generato creando una nuova tabella -->
